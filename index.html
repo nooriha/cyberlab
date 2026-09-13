@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberLab | نشریه انجمن علمی علوم کامپیوتر دانشگاه قم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="botnet-visual">
+        <div class="server"></div>
+        <div class="bots"></div>
+      </div>
+      <h2 class="glitch" data-text="در حال بارگذاری CyberLab...">در حال بارگذاری CyberLab...</h2>
+      <div class="progress-bar"><div class="progress"></div></div>
+      <p class="loader-tip">شبیه‌سازی ترافیک حمله برای درک بهتر DDoS</p>
+    </div>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <div id="magazine">
+    <!-- ========== COVER ========== -->
+    <section class="page active" data-page="0" id="cover">
+      <div class="cover-image-wrapper">
+        <img src="assets/cover.jpg" alt="CyberLab Cover" class="cover-img spinning-sphere">
+        <div class="cover-overlay"></div>
+      </div>
+      <div class="cover-content">
+        <div class="cover-badge">نشریه انجمن علمی علوم کامپیوتر دانشگاه قم</div>
+        <h1 class="cover-title">Cyber<span>Lab</span></h1>
+        <h2 class="cover-subtitle">شماره یک | تابستان ۱۴۰۵</h2>
+        <p class="cover-desc">ویژه‌نامه حملات DDoS<br>شناخت تهدید، درک بات‌نت و راه‌های دفاع</p>
+        <button class="start-btn" onclick="goToPage(1)">
+          <span>شروع مطالعه</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== ۱ شناسنامه ========== -->
+    <section class="page" data-page="1">
+      <div class="page-header">
+        <span class="page-num">۰۱</span>
+        <h2>شناسنامه</h2>
+      </div>
+      <div class="content-card">
+        <div class="staff-grid">
+          <div class="staff-item">
+            <div class="staff-icon">🏛️</div>
+            <h4>صاحب امتیاز</h4>
+            <p>انجمن علمی علوم کامپیوتر دانشگاه قم</p>
+          </div>
+          <div class="staff-item">
+            <div class="staff-icon">📰</div>
+            <h4>عنوان</h4>
+            <p>CyberLab</p>
+          </div>
+          <div class="staff-item">
+            <div class="staff-icon">📅</div>
+            <h4>شماره و تاریخ</h4>
+            <p>شماره یک | تابستان ۱۴۰۵</p>
+          </div>
+          <div class="staff-item">
+            <div class="staff-icon">🎓</div>
+            <h4>دانشگاه</h4>
+            <p>دانشگاه قم</p>
+          </div>
+        </div>
+        <div class="contact-box">
+          <p>نشریه دانشجویی انجمن علمی علوم کامپیوتر دانشگاه قم</p>
+          <p>اولین شماره — ویژه‌نامه امنیت سایبری و حملات DDoS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۲ فهرست ========== -->
+    <section class="page" data-page="2">
+      <div class="page-header">
+        <span class="page-num">۰۲</span>
+        <h2>فهرست مطالب</h2>
+      </div>
+      <div class="toc">
+        <div class="toc-item" onclick="goToPage(3)"><span>۰۳</span> سرمقاله</div>
+        <div class="toc-item" onclick="goToPage(4)"><span>۰۴</span> آموزش: DDoS دقیقاً چیست؟</div>
+        <div class="toc-item" onclick="goToPage(5)"><span>۰۵</span> سه راه اصلی حملات DDoS</div>
+        <div class="toc-item" onclick="goToPage(6)"><span>۰۶</span> بات‌نت‌ها و فرماندهی</div>
+        <div class="toc-item" onclick="goToPage(7)"><span>۰۷</span> دفاع در برابر DDoS</div>
+        <div class="toc-item" onclick="goToPage(8)"><span>۰۸</span> اخبار</div>
+        <div class="toc-item" onclick="goToPage(9)"><span>۰۹</span> مصاحبه</div>
+        <div class="toc-item" onclick="goToPage(10)"><span>۱۰</span> پرونده: گری مک‌کینون</div>
+        <div class="toc-item" onclick="goToPage(11)"><span>۱۱</span> دانستنی: کد آپولو</div>
+        <div class="toc-item" onclick="goToPage(12)"><span>۱۲</span> حقایق جالب</div>
+        <div class="toc-item" onclick="goToPage(13)"><span>۱۳</span> معما</div>
+        <div class="toc-item" onclick="goToPage(14)"><span>۱۴</span> نقل‌قول: کوین میتنیک</div>
+        <div class="toc-item" onclick="goToPage(15)"><span>۱۵</span> طنز سایبری</div>
+        <div class="toc-item" onclick="goToPage(16)"><span>۱۶</span> معرفی کتاب و منابع</div>
+        <div class="toc-item" onclick="goToPage(17)"><span>۱۷</span> صفحه پایانی</div>
+      </div>
+    </section>
+
+    <!-- ========== ۳ سرمقاله ========== -->
+    <section class="page" data-page="3">
+      <div class="page-header">
+        <span class="page-num">۰۳</span>
+        <h2>سرمقاله</h2>
+      </div>
+      <div class="article">
+        <h3>به اولین شماره ماهنامه انجمن علمی علوم کامپیوتر دانشگاه قم خوش آمدید</h3>
+        <p class="lead">در این شماره تصمیم گرفتیم درباره حملات DDoS صحبت کنیم؛ حمله‌ای که شاید در نگاه اول موضوعی تخصصی و مربوط به شرکت‌های بزرگ یا هکرهای حرفه‌ای به نظر برسد، اما واقعیت این است که فاصله ما با این تهدید آن‌قدرها هم زیاد نیست.</p>
+        <p>امروزه دستگاه‌هایی مثل روترهای خانگی، دوربین‌های مداربسته، تلویزیون‌های هوشمند و حتی گوشی‌های معمولی، اگر به‌درستی ایمن نشده باشند، می‌توانند بدون اینکه صاحبشان متوجه شود، بخشی از یک حمله بزرگ باشند. گاهی یک رمز عبور پیش‌فرض یا یک بدافزار ساده کافی است تا یک دستگاه به عضوی از یک بات‌نت تبدیل شود.</p>
+        <p>در این شماره سعی کرده‌ایم DDoS را از پایه بررسی کنیم و بدون اینکه وارد توضیحات بیش از حد پیچیده شویم، ببینیم این حملات چطور انجام می‌شوند، بات‌نت‌ها چگونه شکل می‌گیرند، چه نشانه‌هایی می‌توانند هشداردهنده باشند و در نهایت، چه راه‌هایی برای مقابله با این تهدید وجود دارد.</p>
+        <p>در کنار بخش آموزشی، دو نمونه واقعی از حملات اخیر را هم بررسی کرده‌ایم تا ببینیم چیزی که درباره‌اش می‌خوانیم، فقط یک بحث تئوری نیست و در دنیای واقعی هم اتفاق می‌افتد.</p>
+        <p>امنیت سایبری چیزی نیست که یک‌بار آن را انجام دهیم و تمام شود؛ امنیت یک فرایند مداوم است و شاید اولین قدم در این مسیر، شناختن تهدیدها باشد.</p>
+        <p>امیدواریم این شماره برای شما فقط یک مطلب خواندنی نباشد و باعث شود کمی بیشتر به امنیت دستگاه‌هایی فکر کنیم که هر روز به آن‌ها اعتماد داریم.</p>
+        <div class="editor-sign">اعضای تیم نشریه انجمن علمی علوم کامپیوتر دانشگاه قم</div>
+      </div>
+    </section>
+
+    <!-- ========== ۴ آموزش چیست ========== -->
+    <section class="page" data-page="4">
+      <div class="page-header">
+        <span class="page-num">۰۴</span>
+        <h2>آموزش</h2>
+      </div>
+      <div class="article">
+        <h3>DDoS دقیقاً چیست؟</h3>
+        <p>بیایید از اول شروع کنیم. وقتی آدرس یک سایت را در مرورگرتان وارد می‌کنید، درواقع دارید یک «درخواست» به یک کامپیوتر خیلی قدرتمند می‌فرستید که در جایی دیگر، شاید هزاران کیلومتر دورتر، روشن و منتظر دستورات است؛ این کامپیوتر <strong>سرور</strong> نام دارد. کار سرور این است که به درخواست شما جواب بدهد و صفحه سایت را برایتان بفرستد.</p>
+        <p>حالا فرض کنید سرور مثل یک فروشنده تنهاست که پشت یک پیشخوان ایستاده. اگر صد نفر مشتری عادی بیایند، فروشنده به ترتیب و بدون مشکل به همه رسیدگی می‌کند. اما اگر ناگهان ده میلیون نفر آدم اجیرشده همزمان هجوم ببرند و یک‌صدا فریاد بزنند «به من جواب بده!»، فروشنده گیج می‌شود، از کار می‌افتد و حتی مشتری‌های واقعی هم دیگر نمی‌توانند از او جواب بگیرند.</p>
+        <p>این دقیقاً اتفاقی است که در حمله <strong>DDoS</strong> (Distributed Denial of Service یا حمله منع سرویس توزیع‌شده) می‌افتد. یک نفر از عمد میلیون‌ها درخواست جعلی به سمت سرور هدف می‌فرستد تا سرور را از کار بیندازد و کاربرهای واقعی نتوانند وارد شوند.</p>
+        <div class="info-box">
+          <h4>نکته مهم</h4>
+          <p>مشکل تعداد درخواست‌ها نیست؛ یک سایت فروشگاهی می‌تواند به خاطر محبوبیت یا تخفیفات فصلی شلوغ شود و مشکلی پیش نیاید. مشکل از <strong>الگوی غیرطبیعی</strong> درخواست‌هاست: وقتی میلیون‌ها درخواست از مکان‌های مختلف، با الگوهای یکسان و بی‌معنی می‌آیند، می‌فهمیم که این یک حمله است.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۵ سه راه ========== -->
+    <section class="page" data-page="5">
+      <div class="page-header">
+        <span class="page-num">۰۵</span>
+        <h2>انواع حملات</h2>
+      </div>
+      <div class="article">
+        <h3>سه راه اصلی حملات DDoS</h3>
+        
+        <div class="tip" style="margin-bottom:16px">
+          <span class="tip-num">۱</span>
+          <div>
+            <h4>حملات حجمی (Volumetric)</h4>
+            <p>مهاجم فقط می‌خواهد جاده را مسدود کند. تصور کنید میان شما و سرور یک لوله انتقال داده وجود دارد. مهاجم آن‌قدر داده بی‌ارزش در این لوله می‌ریزد که دیگر جایی برای داده‌های واقعی نمی‌ماند. به ظرفیت این لوله <strong>پهنای باند (Bandwidth)</strong> می‌گویند.</p>
+          </div>
+        </div>
+
+        <div class="tip" style="margin-bottom:16px">
+          <span class="tip-num">۲</span>
+          <div>
+            <h4>حملات پروتکلی (Protocol)</h4>
+            <p>وقتی کامپیوتر شما می‌خواهد به یک سرور وصل شود، باید یک «دست دادن سه‌مرحله‌ای» یا <strong>TCP Handshake</strong> انجام دهد:</p>
+            <ul style="margin:8px 0 8px 0;padding-right:18px;color:var(--text-muted);font-size:0.9rem;line-height:1.7">
+              <li>مرحله اول: دستگاه شما یک بسته با پرچم SYN می‌فرستد.</li>
+              <li>مرحله دوم: سرور با SYN+ACK جواب می‌دهد.</li>
+              <li>مرحله سوم: دستگاه شما ACK می‌فرستد و ارتباط برقرار می‌شود.</li>
+            </ul>
+            <p>در حمله <strong>SYN Flood</strong> مهاجم فقط مرحله اول را هزاران بار تکرار می‌کند و هیچ‌وقت مرحله سوم را کامل نمی‌کند. سرور در حالت انتظار برای هزاران ارتباط نیمه‌کاره می‌ماند تا جایی که دیگر فضایی برای ارتباط‌های واقعی باقی نماند.</p>
+          </div>
+        </div>
+
+        <div class="tip">
+          <span class="tip-num">۳</span>
+          <div>
+            <h4>حملات لایه اپلیکیشن (Application Layer)</h4>
+            <p>تشخیص این نوع سخت‌تر است، چون دقیقاً شبیه کاربر واقعی عمل می‌کند. مهاجم به جای میلیون‌ها درخواست بی‌معنی، چند هزار درخواست معنادار می‌فرستد که همه‌شان سراغ سنگین‌ترین صفحات سایت (مثل صفحه لاگین یا جستجو) می‌روند.</p>
+            <p style="margin-top:8px">یکی از انواع معروف آن <strong>HTTP Flood</strong> است:</p>
+            <ul style="margin:8px 0;padding-right:18px;color:var(--text-muted);font-size:0.9rem;line-height:1.7">
+              <li><strong>GET Flood</strong>: درخواست‌های مکرر برای بارگذاری یک صفحه یا فایل.</li>
+              <li><strong>POST Flood</strong>: ارسال مکرر فرم‌ها که سنگین‌تر است.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۶ بات‌نت ========== -->
+    <section class="page" data-page="6">
+      <div class="page-header">
+        <span class="page-num">۰۶</span>
+        <h2>بات‌نت</h2>
+      </div>
+      <div class="article">
+        <h3>بات‌نت‌ها چه هستند و چطور فرمان‌دهی می‌شوند؟</h3>
+        <p>مهاجم خودش هزاران کامپیوتر ندارد. او ابتدا یک بدافزار می‌سازد و آن را مخفیانه پخش می‌کند — از طریق فایل آلوده، لینک مشکوک، یا سوءاستفاده از رمزهای عبور ضعیف پیش‌فرض دستگاه‌های هوشمند خانگی (روتر وای‌فای، دوربین مداربسته و غیره). وقتی بدافزار وارد دستگاه شود، بدون اطلاع صاحبش تبدیل به یک «زامبی» می‌شود.</p>
+        <p>مهاجم این کار را روی هزاران یا حتی میلیون‌ها دستگاه در سراسر دنیا تکرار می‌کند. به این مجموعه دستگاه‌های آلوده <strong>بات‌نت (BotNet)</strong> می‌گویند (از ترکیب Robot + Network).</p>
+        <p>مهاجم یک مرکز فرماندهی مخفی به نام <strong>C2 (Command & Control)</strong> دارد. از همان‌جا فقط یک سیگنال می‌فرستد: «همین الان همه با هم به سایت X حمله کنید» و ناگهان میلیون‌ها دستگاه بدون اطلاع صاحبانشان شروع به بمباران یک سرور می‌کنند.</p>
+        
+        <div class="info-box">
+          <h4>داستان Mirai (۲۰۱۶)</h4>
+          <p>بدافزاری به نام <strong>Mirai</strong> دقیقاً همین کار را کرد. هزاران دستگاه هوشمند خانگی که هنوز رمز عبور کارخانه‌ای داشتند را آلوده کرد. مهاجم با یک فرمان واحد، این ارتش دیجیتال را به سمت شرکت Dyn هدایت کرد. برای چند ساعت سایت‌های بزرگی مثل توییتر، نتفلیکس، ردیت و آمازون در بخش‌های وسیعی از آمریکا از دسترس خارج شدند — همه به خاطر چند هزار دوربین مداربسته و روتر خانگی که کسی رمزشان را عوض نکرده بود.</p>
+        </div>
+        <p style="margin-top:16px;font-style:italic;color:var(--text-muted)">و به همین راحتی گوشی‌ای که در دست دارید می‌تواند بخشی از یک ارتش دیجیتال باشد.</p>
+      </div>
+    </section>
+
+    <!-- ========== ۷ دفاع ========== -->
+    <section class="page" data-page="7">
+      <div class="page-header">
+        <span class="page-num">۰۷</span>
+        <h2>دفاع</h2>
+      </div>
+      <div class="article">
+        <h3>چطور یک سیستم در برابر DDoS از خودش دفاع می‌کند؟</h3>
+        
+        <div class="tips">
+          <div class="tip">
+            <span class="tip-num">۱</span>
+            <div>
+              <h4>محدود کردن نرخ درخواست‌ها (Rate Limiting)</h4>
+              <p>سیستم تعداد درخواست‌های مجاز از یک منبع را در بازه زمانی محدود می‌کند. اگر کسی در هر ثانیه صد سؤال بپرسد، متوقفش می‌کند.</p>
+            </div>
+          </div>
+          <div class="tip">
+            <span class="tip-num">۲</span>
+            <div>
+              <h4>شبکه‌های Anycast</h4>
+              <p>سرور شعبه‌های متعددی دارد که همگی از یک آدرس اینترنتی یکسان استفاده می‌کنند. وقتی حمله می‌آید، بار بین شعبات پخش می‌شود.</p>
+            </div>
+          </div>
+          <div class="tip">
+            <span class="tip-num">۳</span>
+            <div>
+              <h4>مراکز پالایش ترافیک (Scrubbing Centers)</h4>
+              <p>مثل دستگاه تصفیه آب برای ترافیک اینترنتی عمل می‌کنند. درخواست‌های مشکوک را حذف و فقط ترافیک تمیز را به سرور اصلی می‌فرستند.</p>
+            </div>
+          </div>
+          <div class="tip">
+            <span class="tip-num">۴</span>
+            <div>
+              <h4>شبکه توزیع محتوا (CDN)</h4>
+              <p>CDN شبکه‌ای از هزاران سرور کوچک‌تر در نقاط مختلف دنیا می‌سازد و نسخه‌ای از محتوای سایت را روی همه آن‌ها ذخیره می‌کند. شرکت‌هایی مثل Cloudflare از همین روش استفاده می‌کنند.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:20px">
+          <h4>راهکارهای عملی (بر اساس Cloudflare)</h4>
+          <ul>
+            <li><strong>Caching</strong>: فایل‌های پرتکرار در CDN ذخیره می‌شوند تا فشار روی سرور اصلی کم شود.</li>
+            <li><strong>WAF</strong>: لایه‌ای که درخواست‌های مشکوک را قبل از رسیدن به سرور مسدود می‌کند.</li>
+            <li><strong>جلوگیری از دسترسی مستقیم</strong>: سرور مبدأ فقط درخواست‌هایی را بپذیرد که از طریق لایه‌های حفاظتی آمده‌اند.</li>
+          </ul>
+        </div>
+
+        <h4 style="margin-top:24px;color:var(--primary)">از کجا بفهمیم مورد حمله قرار گرفته‌ایم؟</h4>
+        <ul style="margin-top:10px;padding-right:18px;line-height:1.9;color:var(--text-muted)">
+          <li>کندی یا قطعی ناگهانی و بی‌دلیل سایت</li>
+          <li>افزایش عجیب و ناگهانی ترافیک بدون دلیل مشخص</li>
+          <li>الگوی تکراری و یکسان در درخواست‌ها</li>
+          <li>مسدود شدن دسترسی کاربران واقعی</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== ۸ اخبار ========== -->
+    <section class="page" data-page="8">
+      <div class="page-header">
+        <span class="page-num">۰۸</span>
+        <h2>اخبار</h2>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-tag">جهان</div>
+          <h4>وقتی مهاجم، یک هوش مصنوعی است!</h4>
+          <p>در جریان یک آزمایش کنترل‌شده، یک عامل هوش مصنوعی که محدودیت‌های ایمنی آن کاهش یافته بود، توانست به‌صورت خودمختار مراحل یک حمله سایبری را علیه زیرساخت یک شرکت دیگر شبیه‌سازی و اجرا کند. OpenAI این رخداد را بی‌سابقه توصیف کرد.</p>
+          <p style="margin-top:10px;font-size:0.85rem;color:var(--text-muted)">این رویداد نشان می‌دهد با افزایش توانایی سامانه‌های هوش مصنوعی، نگرانی‌های امنیتی هم جدی‌تر شده است. <em>منابع: Reuters، OpenAI</em></p>
+        </div>
+        <div class="news-card">
+          <div class="news-tag">دانشگاهی</div>
+          <h4>دانشجوی ۲۲ ساله در مقابله با یکی از بزرگ‌ترین بات‌نت‌های جهان</h4>
+          <p>بنجامین برانداج (Benjamin Brundage)، دانشجوی ۲۲ ساله دانشگاه فناوری روچستر (RIT)، نقش مهمی در شناسایی زیرساخت یکی از بزرگ‌ترین بات‌نت‌های جهان به نام <strong>Kimwolf</strong> ایفا کرد. این بات‌نت بیش از ۲۶ هزار حمله DDoS علیه هزاران هدف اجرا کرده بود.</p>
+          <p style="margin-top:10px">شبکه‌ای متشکل از بیش از دو میلیون دستگاه آلوده (از جمله Android TV Box و تجهیزات IoT) با توانایی اجرای حملات بیش از ۳۰ ترابیت بر ثانیه. یافته‌های او به آغاز عملیات برای از کار انداختن زیرساخت بات‌نت منجر شد. <em>منابع: WSJ، RIT</em></p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== ۹ مصاحبه (جای‌نگهدار) ========== -->
+    <section class="page" data-page="9">
+      <div class="page-header">
+        <span class="page-num">۰۹</span>
+        <h2>مصاحبه</h2>
+      </div>
+      <div class="interview">
+        <div class="interview-header">
+          <div class="avatar">🎙️</div>
+          <div>
+            <h3>گفتگو با متخصص امنیت سایبری</h3>
+            <p class="role">به‌زودی تکمیل می‌شود</p>
+          </div>
+        </div>
+        <div class="qa">
+          <div class="q">این بخش هنوز ضبط / پیاده‌سازی نشده است.</div>
+          <div class="a">می‌توانید بعداً متن مصاحبه را اینجا جایگزین کنید. ساختار آماده است: سؤال و جواب، معرفی مهمان، و نکات کلیدی.</div>
+        </div>
+        <div class="info-box" style="margin-top:20px">
+          <h4>پیشنهاد برای تکمیل</h4>
+          <ul>
+            <li>نام و سمت مهمان</li>
+            <li>۳ تا ۵ سؤال اصلی درباره تجربه مقابله با DDoS</li>
+            <li>توصیه به دانشجویان</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۱۰ گری مک‌کینون ========== -->
+    <section class="page" data-page="10">
+      <div class="page-header">
+        <span class="page-num">۱۰</span>
+        <h2>پرونده ویژه</h2>
+      </div>
+      <div class="article">
+        <h3>گری مک‌کینون (Gary McKinnon)</h3>
+        <p>یکی از شناخته‌شده‌ترین نام‌ها در تاریخ هک و امنیت سایبری است؛ هکری بریتانیایی که در اوایل دهه ۲۰۰۰ متهم شد به سیستم‌های کامپیوتری ارتش آمریکا و ناسا نفوذ کرده است.</p>
+        <p>مک‌کینون در سال ۱۹۶۶ در گلاسگو، اسکاتلند متولد شد. بین سال‌های ۲۰۰۱ تا ۲۰۰۲ به مجموعه‌ای از سیستم‌های متعلق به ارتش آمریکا، نیروی دریایی، وزارت دفاع و ناسا دسترسی پیدا کرد.</p>
+        <div class="info-box">
+          <h4>چرا؟</h4>
+          <p>مک‌کینون بعدها گفت هدف اصلی‌اش پیدا کردن اطلاعاتی درباره بشقاب‌پرنده‌ها (UFO)، موجودات فرازمینی و پروژه‌های محرمانه دولتی بوده است. او ادعا می‌کرد به دنبال شواهدی از وجود فناوری‌های پیشرفته بوده که دولت آمریکا از مردم پنهان می‌کند.</p>
+        </div>
+        <p>پس از شناسایی، ایالات متحده خواستار استرداد او شد. این پرونده سال‌ها ادامه پیدا کرد و به یکی از جنجالی‌ترین پرونده‌های استرداد در بریتانیا تبدیل شد. مک‌کینون مبتلا به سندرم آسپرگر تشخیص داده شده بود و در نهایت، در سال ۲۰۱۲ دولت بریتانیا تصمیم گرفت از استرداد او جلوگیری کند.</p>
+        <p style="margin-top:14px">صرف‌نظر از ادعاهای او درباره UFOها، پرونده McKinnon نشان داد که یک نفوذ سایبری می‌تواند خیلی فراتر از یک اتفاق فنی باشد و به موضوعاتی مانند امنیت ملی، سیاست، حقوق بشر و آزادی اطلاعات کشیده شود.</p>
+      </div>
+    </section>
+
+    <!-- ========== ۱۰ دانستنی ========== -->
+    <section class="page" data-page="11">
+      <div class="page-header">
+        <span class="page-num">۱۱</span>
+        <h2>دانستنی</h2>
+      </div>
+      <div class="article">
+        <h3>کدی که انسان را روی ماه فرود آورد</h3>
+        <p>آیا می‌دانید نرم‌افزاری که انسان را روی ماه فرود آورد، هنوز هم در دانشکده‌های مهندسی به‌عنوان یک شاهکار تدریس می‌شود؟</p>
+        <p>سال ۱۹۶۹، وقتی آپولو ۱۱ به سمت ماه می‌رفت، کامپیوتری که هدایت فضاپیما را بر عهده داشت، حافظه‌اش فقط حدود <strong>۷۲ کیلوبایت</strong> بود. برای مقایسه، امروز حتی یک ایمیل ساده هم گاهی بیشتر از این حجم دارد.</p>
+        <p>با این حال، تیم مارگارت همیلتون در MIT کدی نوشتند که نه تنها کار می‌کرد، بلکه در سخت‌ترین لحظه مأموریت هم نجات‌دهنده شد.</p>
+        <div class="info-box">
+          <p>در جریان فرود، کامپیوتر ناگهان آلارم‌های ۱۲۰۱ و ۱۲۰۲ داد. پردازنده بیش از حد شلوغ شده بود. اما سیستم طوری طراحی شده بود که کارهای کم‌اهمیت را رها کند و فقط روی کارهای حیاتی تمرکز کند. نتیجه؟ نیل آرمسترانگ و باز آلدرین سالم روی سطح ماه فرود آمدند.</p>
+        </div>
+        <p>این کد به زبان اسمبلی نوشته شده بود، تقریباً بدون باگ شناخته‌شده در تمام مأموریت‌های سرنشین‌دار آپولو کار کرد و هنوز هم به‌عنوان نمونه‌ای کلاسیک از «طراحی ایمن و کارآمد در منابع بسیار محدود» در دانشگاه‌ها بررسی می‌شود.</p>
+        <p style="margin-top:12px;color:var(--primary)">شاهکاری از دهه‌ی شصت که بعد از بیش از نیم‌قرن، هنوز الهام‌بخش است.</p>
+      </div>
+    </section>
+
+    <!-- ========== ۱۱ حقایق ========== -->
+    <section class="page" data-page="12">
+      <div class="page-header">
+        <span class="page-num">۱۲</span>
+        <h2>حقایق جالب</h2>
+      </div>
+      <div class="fun-facts">
+        <div class="fun-fact">
+          <div class="fun-icon">🐠</div>
+          <div>
+            <h4 style="color:var(--primary);margin-bottom:6px">بزرگ‌ترین حمله سایبری یک کازینو، از یک ماهی شروع شد!</h4>
+            <p>حتی کوچک‌ترین و بی‌اهمیت‌ترین دستگاه‌ها هم می‌توانند دروازه ورود یک حمله بزرگ باشند. در یکی از عجیب‌ترین حوادث امنیتی سال ۲۰۱۷، هکرها از طریق ترموستات هوشمند متصل به آکواریوم یک کازینو، وارد شبکه داخلی آن شرکت شدند و به اطلاعات مشتریان دست پیدا کردند.</p>
+          </div>
+        </div>
+        <div class="fun-fact">
+          <div class="fun-icon">🎭</div>
+          <div>
+            <h4 style="color:var(--primary);margin-bottom:6px">گاهی DDoS فقط یک حواس‌پرتی است</h4>
+            <p>در برخی حملات پیچیده، هدف اصلی مهاجم اصلاً از کار انداختن سایت نیست؛ بلکه سرگرم کردن تیم امنیتی با یک حمله حجمی است، در حالی که یک نفوذ واقعی و کم‌سر و صدا از یک در دیگر در حال انجام است. مانند حمله سال ۲۰۲۴ به آرشیو اینترنت که همزمان با مهار DDoS، اطلاعات بیش از ۳۱ میلیون کاربر سرقت شد.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۱۲ معما ========== -->
+    <section class="page" data-page="13">
+      <div class="page-header">
+        <span class="page-num">۱۳</span>
+        <h2>معما</h2>
+      </div>
+      <div class="quiz-box">
+        <h3>معمای این شماره</h3>
+        <p class="question">من اولین خط دفاعی یک شبکه هستم. تصمیم می‌گیرم چه کسی وارد شود و چه کسی پشت در بماند، بر اساس قوانینی که مدیر سیستم برایم نوشته است.<br><br><strong>نام من چیست؟</strong></p>
+        <div class="options">
+          <button class="option" onclick="checkAnswer(this, false)">آنتی‌ویروس</button>
+          <button class="option" onclick="checkAnswer(this, true)">فایروال (Firewall)</button>
+          <button class="option" onclick="checkAnswer(this, false)">روتر</button>
+          <button class="option" onclick="checkAnswer(this, false)">سوئیچ</button>
+        </div>
+        <div id="quiz-result"></div>
+      </div>
+    </section>
+
+    <!-- ========== ۱۳ نقل قول ========== -->
+    <section class="page" data-page="14">
+      <div class="page-header">
+        <span class="page-num">۱۴</span>
+        <h2>نقل‌قول</h2>
+      </div>
+      <div class="article">
+        <h3>کوین میتنیک؛ از تحت‌تعقیب‌ترین هکر دنیا تا مشاور امنیتی</h3>
+        <p>گاهی شنیدن نصیحت از سمت یک دزد برای حفظ امنیت خیلی مفیدتر از سمت یک پلیس است.</p>
+        <p>کوین میتنیک زمانی به‌عنوان تحت تعقیب‌ترین هکر آمریکا شناخته می‌شد؛ کسی که سال‌ها از دست FBI فرار کرد و به شبکه شرکت‌های خیلی بزرگی مثل نوکیا و سان مایکروسیستمز نفوذ کرد. در نهایت پس از دستگیری و زندان مسیرش کاملاً تغییر کرد و به یکی از شناخته‌شده‌ترین مشاوران امنیت سایبری دنیا تبدیل شد.</p>
+        <blockquote style="background:var(--bg-card);border-radius:16px;padding:24px;margin:20px 0;border-right:4px solid var(--primary);font-size:1.15rem;line-height:1.8">
+          «عامل انسانی، واقعاً ضعیف‌ترین حلقه امنیت است.»
+          <cite style="display:block;margin-top:12px;font-size:0.9rem;color:var(--text-muted);font-style:normal">— کوین میتنیک، کتاب «هنر فریب»</cite>
+        </blockquote>
+        <p>او می‌گوید حتی قوی‌ترین فایروال‌ها و پیچیده‌ترین سیستم‌های دفاعی هم اگر در دست یک کارمند یا یک کاربر آموزش‌ندیده باشند، فقط با یک کلیک اشتباه روی یک لینک آلوده، در هم شکسته می‌شوند.</p>
+      </div>
+    </section>
+
+
+    <!-- ========== ۱۵ طنز ========== -->
+    <section class="page" data-page="15">
+      <div class="page-header">
+        <span class="page-num">۱۵</span>
+        <h2>طنز سایبری</h2>
+      </div>
+      <div class="comic" style="text-align:center">
+        <img src="assets/meme-ddos.jpg" alt="میم DDoS" style="max-width:100%;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.4);margin-bottom:16px">
+        <p class="comic-caption" style="color:var(--text-muted);font-size:0.95rem">مدیر داره ازم قدردانی می‌کنه بابت متوقف کردن حملات DDoS...<br>من که فقط سرور رو از برق کشیدم 😂</p>
+      </div>
+    </section>
+
+    <!-- ========== ۱۶ منابع ========== -->
+    <section class="page" data-page="16">
+      <div class="page-header">
+        <span class="page-num">۱۶</span>
+        <h2>منابع و معرفی</h2>
+      </div>
+      <div class="article">
+        <div class="book-card">
+          <div class="book-cover">📘</div>
+          <div class="book-info">
+            <h3>The Cuckoo’s Egg</h3>
+            <p class="author">نوشته Cliff Stoll</p>
+            <p>یکی از کلاسیک‌ترین و مهم‌ترین کتاب‌های تاریخ امنیت سایبری. داستان واقعی تعقیب یک هکر در دهه ۸۰ است که به شکل روایی و جذاب نوشته شده. هنوز هم در خیلی از دوره‌های مقدماتی امنیت به‌عنوان نقطه شروع معرفی می‌شود.</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">🌐</div>
+          <div class="book-info">
+            <h3>TryHackMe</h3>
+            <p class="author">tryhackme.com</p>
+            <p>بهترین پلتفرم رایگان (و پولی) برای یادگیری عملی امنیت. اتاق‌های راهنمادار دارد، از سطح مبتدی شروع می‌شود و می‌توانید بدون نیاز به نصب پیچیده، مفاهیم شبکه، وب، لینوکس و حملات را تمرین کنید. برای دانشجوها تقریباً استاندارد شده.</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">🎬</div>
+          <div class="book-info">
+            <h3>Zero Days (۲۰۱۶)</h3>
+            <p class="author">مستند</p>
+            <p>مستند قدرتمند درباره کرم Stuxnet؛ اولین سلاح سایبری شناخته‌شده که زیرساخت فیزیکی (تاسیسات هسته‌ای ایران) را هدف قرار داد. هم جنبه‌های فنی را نشان می‌دهد و هم ابعاد سیاسی و اخلاقی جنگ سایبری را.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ۱۷ صفحه پایانی ========== -->
+    <section class="page" data-page="17">
+      <div class="page-header">
+        <span class="page-num">۱۷</span>
+        <h2>صفحه پایانی</h2>
+      </div>
+      <div class="back-page">
+        <h3>سخن آخر</h3>
+        <p>از اینکه با ما در اولین شماره CyberLab همراه بودید سپاسگزاریم.<br>
+        امنیت سایبری یک سفر مداوم است و هر دانشجویی می‌تواند بخشی از راه‌حل باشد.</p>
+        <div class="socials">
+          <div class="social-item">دانشگاه قم</div>
+          <div class="social-item">انجمن علمی علوم کامپیوتر</div>
+        </div>
+        <p class="final-msg">با همراهی شما، هر شماره بهتر از قبل خواهیم بود.</p>
+        <p style="margin-top:30px;font-size:0.9rem;color:var(--text-muted)">CyberLab — شماره یک | تابستان ۱۴۰۵</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <button id="prevBtn" onclick="prevPage()" disabled>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2"/></svg>
+      قبلی
+    </button>
+    <div class="page-indicator">
+      <span id="currentPage">۱</span> / <span id="totalPages">۱۸</span>
+    </div>
+    <button id="nextBtn" onclick="nextPage()">
+      بعدی
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+  </nav>
+
+  
+  <!-- Music Player -->
+  <button id="musicBtn" onclick="toggleMusic()" title="پخش / توقف موسیقی پس‌زمینه">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <audio id="bgMusic" loop preload="none">
+    <!-- برای پخش موسیقی: یک فایل MP3 ملایم در پوشه assets بگذار و خط زیر را از کامنت خارج کن -->
+    <source src="assets/music.mp3" type="audio/mpeg"> 
+  </audio>
+
+  <button id="menuBtn" onclick="toggleMenu()">☰</button>
+  <div id="sideMenu">
+    <h3>پرش سریع</h3>
+    <div id="menuItems"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
