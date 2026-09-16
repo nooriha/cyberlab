@@ -201,7 +201,7 @@ function buildMenu() {
   const container = document.getElementById('menuItems');
   titles.forEach((title, i) => {
     const btn = document.createElement('button');
-    btn.textContent = `${toPersian(i + 1)}. ${title}`;
+    btn.textContent = title;
     btn.onclick = () => goToPage(i);
     container.appendChild(btn);
   });
