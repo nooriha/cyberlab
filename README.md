@@ -22,23 +22,30 @@ https://nooriha.github.io/cyberlab/
 
 ## تیم تحریریه
 
-زهرا نوری‌ها
-(https://github.com/nooriha)
+
 مرضیه نجفی
+(https://github.com/MarziehNajafi)
 
 اسرا حوائجی
+(https://github.com/asra-a)
 
 مهسا عبدی
+(https://github.com/MahsaAbdi19)
 
 زهرا علی‌محمدی
-(github.com/zahra8alimohammadi)
+(https://github.com/zahra8alimohammadi)
 
 زینب رضایی 
+(https://github.com/Zeynab-Rezaei)
 
 زینب زرنگ 
-(github.com/zeinabzerang2006-ai)
+(https://github.com/zeinabzerang2006-ai)
 
 نیکی آزاد
+(https://github.com/Nikiazad)
+
+زهرا نوری‌ها
+(https://github.com/nooriha)
 
 > صاحب امتیاز: انجمن علمی علوم کامپیوتر دانشگاه قم
 
