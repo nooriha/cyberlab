@@ -1,7 +1,7 @@
 // ==================== State ====================
 let currentPage = 0;
-const totalPages = 18;
-const pages = document.querySelectorAll('.page');
+const pages = Array.from(document.querySelectorAll('.page'));
+const totalPages = pages.length;
 
 // ==================== Loader ====================
 function initLoader() {
@@ -113,8 +113,14 @@ function toPersian(n) {
   return String(n).replace(/\d/g, d => persian[d]);
 }
 
-function goToPage(index) {
-  if (index < 0 || index >= totalPages || index === currentPage) return;
+// Links use stable data-page IDs; sequential navigation uses DOM positions.
+function goToPage(pageId) {
+  const index = pages.findIndex(page => page.dataset.page === String(pageId));
+  showPage(index);
+}
+
+function showPage(index) {
+  if (!Number.isInteger(index) || index < 0 || index >= totalPages || index === currentPage) return;
 
   const direction = index > currentPage ? 1 : -1;
   const current = pages[currentPage];
@@ -153,11 +159,11 @@ function goToPage(index) {
 }
 
 function nextPage() {
-  goToPage(currentPage + 1);
+  showPage(currentPage + 1);
 }
 
 function prevPage() {
-  goToPage(currentPage - 1);
+  showPage(currentPage - 1);
 }
 
 // Keyboard
@@ -190,6 +196,7 @@ function closeMenu() {
 }
 
 function buildMenu() {
+  // Titles are keyed by data-page ID, including temporarily unpublished pages.
   const titles = [
     'جلد', 'شناسنامه', 'فهرست مطالب', 'سرمقاله',
     'آموزش: DDoS چیست؟', 'انواع حملات', 'بات‌نت', 'دفاع',
@@ -199,10 +206,10 @@ function buildMenu() {
   ];
 
   const container = document.getElementById('menuItems');
-  titles.forEach((title, i) => {
+  pages.forEach(page => {
     const btn = document.createElement('button');
-    btn.textContent = title;
-    btn.onclick = () => goToPage(i);
+    btn.textContent = titles[page.dataset.page] || page.querySelector('h2, h1').textContent;
+    btn.onclick = () => goToPage(page.dataset.page);
     container.appendChild(btn);
   });
 }
