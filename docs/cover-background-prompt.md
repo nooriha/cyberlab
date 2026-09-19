@@ -1,0 +1,9 @@
+# Cover background v2
+
+Generated with the built-in imagegen tool using `F:/Downloads/photo_28551102319_x.jpg` as the sphere reference.
+
+Output: `assets/cover-background-v2.png`
+
+## Prompt
+
+Use case: stylized-concept. Asset type: production background image for the cover of CyberLab, a Persian student cybersecurity magazine website. Input image 1 is a visual reference for the metallic fractured digital sphere ONLY; its poster typography and layout must not be retained. Create ONE polished landscape 1536x1024 background, not a website mockup. Preserve the recognizable dark metallic network sphere with delicate polygon lines, sparse luminous nodes and a restrained fractured edge from the reference, but simplify the debris and drastically reduce the density and brightness of light trails. Place the sphere in the LOWER LEFT portion of the canvas, its center approximately 22 percent from the left and 80 percent from the top, diameter approximately 55 percent of image height, with a small part cropped naturally by the bottom edge. Keep the entire central column and upper two thirds spacious, near-black midnight navy, exceptionally calm and dark so white website titles and existing logos can be overlaid legibly. Smooth midnight blue to black atmospheric background, subtle cyan rim lighting on the sphere, a faint low reflection, very few tiny fragments near the fractured edge. Elegant editorial cybersecurity 3D artwork, detailed globe material but minimal composition. Overall subdued exposure, cinematic but quiet, no bright beams across the central text-safe area, no busy matrix textures. No text of any language, no letters, numbers, code, captions, logos, watermarks, barcodes, magazine frames, UI, or controls anywhere. Remove absolutely all of the reference's typography and emblems. The image should stand alone as a seamless spacious web hero background.
