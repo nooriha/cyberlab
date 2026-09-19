@@ -156,6 +156,8 @@ function showPage(index) {
 
   // Scroll to top of page
   next.scrollTop = 0;
+  next.tabIndex = -1;
+  next.focus({ preventScroll: true });
 }
 
 function nextPage() {
@@ -166,25 +168,74 @@ function prevPage() {
   showPage(currentPage - 1);
 }
 
-// Keyboard
+// Leave controls, selected text and nested horizontal scrollers to the browser.
+function blocksPageNavigation(target) {
+  if (document.getElementById('sideMenu').classList.contains('open')) return true;
+  if (!window.getSelection().isCollapsed) return true;
+  if (target.closest('a, button, input, textarea, select, audio, video, [contenteditable]:not([contenteditable="false"]), [role="button"], .toc-item')) return true;
+
+  for (let element = target; element && element !== pages[currentPage]; element = element.parentElement) {
+    if (element.scrollWidth > element.clientWidth + 1 &&
+        /auto|scroll/.test(getComputedStyle(element).overflowX)) return true;
+  }
+  return false;
+}
+
+// Up/down arrows retain native scrolling in the focused page.
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') nextPage();
-  if (e.key === 'ArrowRight' || e.key === 'ArrowUp') prevPage();
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || blocksPageNavigation(e.target)) return;
+  e.preventDefault();
+  if (e.key === 'ArrowLeft') nextPage();
+  else prevPage();
 });
 
-// Touch swipe
-let touchStartX = 0;
-document.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
+// Only deliberate horizontal swipes on article content turn pages.
+const magazine = document.getElementById('magazine');
+let swipe = null;
+
+magazine.addEventListener('touchstart', e => {
+  swipe = null;
+  if (e.touches.length !== 1 || !pages[currentPage].contains(e.target) || blocksPageNavigation(e.target)) return;
+  const touch = e.touches[0];
+  swipe = {
+    id: touch.identifier,
+    x: touch.clientX,
+    y: touch.clientY,
+    page: currentPage,
+    scrollTop: pages[currentPage].scrollTop,
+    startedAt: performance.now()
+  };
 }, { passive: true });
 
-document.addEventListener('touchend', e => {
-  const diff = e.changedTouches[0].screenX - touchStartX;
-  if (Math.abs(diff) > 60) {
-    if (diff > 0) nextPage(); // swipe right (RTL: next)
-    else prevPage();
+magazine.addEventListener('touchmove', e => {
+  if (!swipe) return;
+  const touch = Array.from(e.touches).find(touch => touch.identifier === swipe.id);
+  if (e.touches.length !== 1 || !touch || swipe.page !== currentPage) {
+    swipe = null;
+    return;
   }
+  const dx = Math.abs(touch.clientX - swipe.x);
+  const dy = Math.abs(touch.clientY - swipe.y);
+  // Never reinterpret a gesture that started scrolling vertically as a swipe.
+  if ((dy > 12 && dy * 2 >= dx) || Math.abs(pages[currentPage].scrollTop - swipe.scrollTop) > 1) swipe = null;
 }, { passive: true });
+
+magazine.addEventListener('touchend', e => {
+  const gesture = swipe;
+  swipe = null;
+  if (!gesture || e.touches.length || gesture.page !== currentPage || blocksPageNavigation(e.target)) return;
+  if (performance.now() - gesture.startedAt > 700 || Math.abs(pages[currentPage].scrollTop - gesture.scrollTop) > 1) return;
+  const touch = Array.from(e.changedTouches).find(touch => touch.identifier === gesture.id);
+  if (!touch) return;
+  const dx = touch.clientX - gesture.x;
+  const dy = touch.clientY - gesture.y;
+  if (Math.abs(dx) < 80 || Math.abs(dx) <= Math.abs(dy) * 2) return;
+  if (dx > 0) nextPage(); // swipe right (RTL: next)
+  else prevPage();
+}, { passive: true });
+
+magazine.addEventListener('touchcancel', () => { swipe = null; }, { passive: true });
 
 // ==================== Side Menu ====================
 function toggleMenu() {
