@@ -27,6 +27,22 @@ html, body {
   direction: rtl;
 }
 
+.reference-link {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.reference-link:hover {
+  color: var(--text);
+}
+
+.reference-link:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Particles canvas */
 #particles {
   position: fixed;
