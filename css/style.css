@@ -295,11 +295,21 @@ html, body {
 }
 
 .institution-credit {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 128px minmax(2.8em, auto);
   align-items: center;
-  justify-content: flex-end;
+  justify-items: center;
+  min-width: 0;
   gap: 12px;
+}
+
+.institution-credit .institution-logo {
+  max-width: 100%;
+}
+
+.institution-credit > span {
+  text-align: center;
+  line-height: 1.4;
 }
 
 @media (max-width: 600px) {
@@ -1252,6 +1262,17 @@ html, body {
   border-radius: 30px;
   font-size: 0.9rem;
   border: 1px solid rgba(255,255,255,0.08);
+}
+
+.socials.institution-credits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 440px;
+  margin: 0 auto 28px;
+}
+
+.institution-credits .social-item {
+  padding: 16px 12px;
 }
 
 .qr-placeholder {
