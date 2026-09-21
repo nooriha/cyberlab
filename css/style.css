@@ -267,14 +267,14 @@ html, body {
 }
 
 @media (max-width: 899px) {
-  .cover-image-wrapper {
-    top: auto;
-    height: 65%;
-  }
-  .cover-img { object-position: left bottom; }
-  .cover-overlay {
-    background: linear-gradient(to bottom, #030a12, rgba(3,10,18,0.85) 40%, rgba(3,10,18,0.45));
-  }
+    .cover-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(3,10,18,0.35),
+            rgba(3,10,18,0.18) 40%,
+            rgba(3,10,18,0.08)
+        );
+    }
 }
 
 .institution-logos {
