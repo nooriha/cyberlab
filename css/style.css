@@ -1531,6 +1531,14 @@ html, body {
   font-size: 1.35rem;
 }
 
+.team-subtitle {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.75em;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .team-timeline {
   position: relative;
   display: flex;
