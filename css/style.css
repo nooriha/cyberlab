@@ -216,6 +216,13 @@ html, body {
   object-fit: cover;
   object-position: center bottom;
 }
+.cover-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 
 /* Floating + subtle spin feel for the sphere */
 .cover-img.spinning-sphere {

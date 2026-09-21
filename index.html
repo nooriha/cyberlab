@@ -30,9 +30,17 @@
     <!-- ========== COVER ========== -->
     <section class="page active" data-page="0" id="cover">
       <div class="cover-image-wrapper">
-        <img src="assets/cover-background-v2.png" alt="" class="cover-img spinning-sphere" width="1536" height="1024" fetchpriority="high">
-        <div class="cover-overlay"></div>
+        <video
+          class="cover-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source src="assets/cover-video.mp4" type="video/mp4">
+        </video>
       </div>
+      <div class="cover-overlay"></div>
       <div class="cover-content">
         <div class="institution-logos">
           <img class="institution-logo institution-logo--association" src="assets/anjoman-transparent.png" width="640" height="640" alt="لوگوی انجمن علمی علوم کامپیوتر دانشگاه قم">
